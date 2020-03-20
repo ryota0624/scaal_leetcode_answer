@@ -9,6 +9,6 @@ object IsPalindrome {
         return false
       }
     }
-    return true
+    true
   }
 }
