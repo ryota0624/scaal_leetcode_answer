@@ -7,13 +7,19 @@ trait Compressor {
   def run(input: In): Out
 }
 
+class RunLengthCompressed(val value: String) extends AnyVal {}
+
+object RunLengthCompressed {
+  def apply(value: String): RunLengthCompressed = new RunLengthCompressed(value)
+}
+
 object RunLengthCompressor extends Compressor {
   override type In = String
-  override type Out = String
+  override type Out = RunLengthCompressed
 
-  override def run(input: String): String = {
+  override def run(input: In): Out = {
     val (head, tail) = (input.head, input.tail)
-    run(tail, head, 1)
+    RunLengthCompressed(run(tail, head, 1))
   }
 
   private def run(remain: String, current: Char, countOfContinue: Int): String = {
@@ -26,7 +32,6 @@ object RunLengthCompressor extends Compressor {
       } else {
         s"$current$countOfContinue" + run(tail, head, 1)
       }
-
     }
   }
 }

@@ -7,12 +7,12 @@ trait Decompressor {
   def run(input: In): Out
 }
 
-object RunLengthCompressionDecompressor extends Decompressor {
-  override type In = String
+object RunLengthDecompressor extends Decompressor {
+  override type In = RunLengthCompressed
   override type Out = String
 
-  override def run(input: String): String = {
-    runRecursive(input)
+  override def run(input: In): Out = {
+    runRecursive(input.value)
   }
 
   def runRecursive(remain: String): String = {
