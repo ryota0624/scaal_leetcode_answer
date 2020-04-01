@@ -17,3 +17,8 @@ project/plugins/project/
 .worksheet
 .idea
 @ryota0624
+
+
+#Added by cargo
+
+/target

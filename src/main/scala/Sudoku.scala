@@ -50,39 +50,39 @@ object Sudoku {
       '9' -> 9
     )
 
-    def apply(board: Array[Array[Char]]): Board = {
-      // sectionごとのseqに並び替える
-//      val groupedBoard = board.grouped(3)
-
-      val boardArray = Array.empty[Array[Char]]
-
-      for ((line, i) <- board.zipWithIndex) {
-        for ((char, j) <- line.zipWithIndex) {
-        }
-//        val groupedLine = line.grouped(3)
-//        val sectionIndex = i / 3
-
-        /**
-         * [
-         * ["5","3",".",".","7",".",".",".","."],
-         * ["6",".",".","1","9","5",".",".","."],
-         * [".","9","8",".",".",".",".","6","."],
-         * ["8",".",".",".","6",".",".",".","3"],
-         * ["4",".",".","8",".","3",".",".","1"],
-         * ["7",".",".",".","2",".",".",".","6"],
-         * [".","6",".",".",".",".","2","8","."],
-         * [".",".",".","4","1","9",".",".","5"],
-         * [".",".",".",".","8",".",".","7","9"]
-         * ]
-         *
-         * to
-         * [
-         * [["5","3","."],[".","7","."],[".",".","."]],
-         * ...
-         * ]
-         */
-      }
-    }
+//    def apply(board: Array[Array[Char]]): Board = {
+//      // sectionごとのseqに並び替える
+////      val groupedBoard = board.grouped(3)
+//
+//      val boardArray = Array.empty[Array[Char]]
+//
+//      for ((line, i) <- board.zipWithIndex) {
+//        for ((char, j) <- line.zipWithIndex) {
+//        }
+////        val groupedLine = line.grouped(3)
+////        val sectionIndex = i / 3
+//
+//        /**
+//         * [
+//         * ["5","3",".",".","7",".",".",".","."],
+//         * ["6",".",".","1","9","5",".",".","."],
+//         * [".","9","8",".",".",".",".","6","."],
+//         * ["8",".",".",".","6",".",".",".","3"],
+//         * ["4",".",".","8",".","3",".",".","1"],
+//         * ["7",".",".",".","2",".",".",".","6"],
+//         * [".","6",".",".",".",".","2","8","."],
+//         * [".",".",".","4","1","9",".",".","5"],
+//         * [".",".",".",".","8",".",".","7","9"]
+//         * ]
+//         *
+//         * to
+//         * [
+//         * [["5","3","."],[".","7","."],[".",".","."]],
+//         * ...
+//         * ]
+//         */
+//      }
+//    }
 
     def apply(sections: Seq[Section]): Board = new Board(sections)
   }
@@ -195,15 +195,14 @@ object Sudoku {
 
     //    println(strToCharArray("[\"5\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"] ").mkString(","))
 
-    strToNextedCharArray(input)
-      .foreach(strArray => println(strArray.mkString(",")))
+//    strToNextedCharArray(input)
+//      .foreach(strArray => println(strArray.mkString(",")))
   }
 
 
   // ["5","3",".",".","7",".",".",".","."] ->
   def strToCharArray(str: String): Array[Char] = {
-    Array.from(str.
-      replace(",", "").
+    Array.from(str.replace(",", "").
       replace("\"", "").
       replace("[", "").
       replace("]", ""),
@@ -211,14 +210,14 @@ object Sudoku {
   }
 
 
-  def strToNextedCharArray(str: String): Array[Array[Char]] = {
-    val contents = str
-      .replace("[", "")
-      .replace("],", "")
-      .filter(_ != " ".head)
-      .split("\n")
-
-    contents.map(strToCharArray)
-  }
+//  def strToNextedCharArray(str: String): Array[Array[Char]] = {
+//    val contents = str
+//      .replace("[", "")
+//      .replace("],", "")
+//      .filter(_ != " ".head)
+//      .split("\n")
+//
+//    contents.map(strToCharArray)
+//  }
 
 }
