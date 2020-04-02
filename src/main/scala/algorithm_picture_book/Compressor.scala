@@ -23,14 +23,15 @@ object RunLengthCompressor extends Compressor {
   }
 
   private def run(remain: String, current: Char, countOfContinue: Int): String = {
+    lazy val str = s"$current$countOfContinue"
     if (remain.isEmpty) {
-      s"$current$countOfContinue"
+      str
     } else {
       val (head, tail) = (remain.head, remain.tail)
       if (head == current) {
         run(tail, current, countOfContinue + 1)
       } else {
-        s"$current$countOfContinue" + run(tail, head, 1)
+        str + run(tail, head, 1)
       }
     }
   }

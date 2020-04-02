@@ -9,6 +9,14 @@ class ListNode(var _x: Int = 0) {
     val tailStr = if (next == null) "" else s" -> ${next.toString}"
     s"${_x}${tailStr}"
   }
+
+  def toSeq(): Seq[Int] = {
+    if (next == null) {
+      _x :: Nil
+    } else {
+      Seq(_x) ++ next.toSeq()
+    }
+  }
 }
 
 object ListNode {
