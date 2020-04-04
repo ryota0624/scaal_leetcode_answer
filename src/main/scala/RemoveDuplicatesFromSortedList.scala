@@ -20,6 +20,6 @@ object RemoveDuplicatesFromSortedList {
 
   }
   def deleteDuplicates(head: ListNode): ListNode = {
-    head.removeDuplicate()
+    if (head != null )head.removeDuplicate() else null
   }
 }
