@@ -1,12 +1,19 @@
 object MaximumSubArray {
   def maxSubArray(nums: Array[Int]): Int = {
-    var cursor = 0
     val numsLen = nums.length
     var maximum = nums.head
+
+    var cursor = 0
     while (cursor < numsLen) {
       var cursor2 = 0
       while (cursor2 + cursor < numsLen) {
-        val sum = nums.slice(cursor, cursor + cursor2 + 1).sum
+        var sum = nums(cursor)
+        var memo = scala.collection.mutable.ArrayBuffer.empty[Int]
+        var i = cursor + 1
+        while (i < cursor + cursor2 + 1) {
+          sum = sum + nums(i)
+          i += 1
+        }
         maximum = Math.max(sum, maximum)
         cursor2 += 1
       }
